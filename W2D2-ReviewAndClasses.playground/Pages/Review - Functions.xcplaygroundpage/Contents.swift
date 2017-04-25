@@ -16,11 +16,11 @@ func rideBike() {
 //: Notice that the playground doesn't show anything to the left of the `print` statement in our `rideBike` function. That's because this code hasn't run yet.
 //: In order to run it, we have to *call* the `rideBike` function. Let's do that now by uncommenting this line:
 
-//rideBike()
+rideBike()
 
 //: If we call the function multiple times, it will run multiple times. That function is a repeatable bit of code.
 
-//rideBike() // calls the rideBike function a second time.
+rideBike() // calls the rideBike function a second time.
 
 //: Functions can take any number of parameters as input, and do something with that input. Take this example function:
 
@@ -35,7 +35,7 @@ func travel(name: String, distance: Double) {
 //:
 //: Try to call this function with your name and a distance
 //: Hint: Start typing the name of the travel function, and autocomplete should suggest a completion!
-
+travel(name: "Aiden", distance: 3.14159)
 
 
 
@@ -43,15 +43,23 @@ func travel(name: String, distance: Double) {
 //: ### Challenge 2
 //: Now, take the code your wrote in the last playground to print out a grammatical description of how fast we're moving, and write a function that takes in a Double and uses that as the kph. Call the function `describeSpeed(kph: )`.
 
-
+func describeSpeed(kph: Double) -> String {
+    if kph > 30 {
+        return ("Woah slow down buddy, \(kph) km/h is too fast")
+    } else if kph > 0 {
+        return ("We're moving \(kph) km/h")
+    } else {
+        return ("We're standing stil")
+    }
+}
 
 
 
 // Test it by uncommenting these lines:
 
-// describeSpeed(kph: 10)
-// describeSpeed(kph: 0)
-// describeSpeed(kph: 100)
+describeSpeed(kph: 10)
+describeSpeed(kph: 0)
+describeSpeed(kph: 100)
 
 
 //: ### Challenge 3
@@ -69,15 +77,15 @@ var result = complement(name: "Cory")
 
 
 //: Using that as an example, re-write the `describeSpeed` function so it returns a String. Call this new function `speedDescription`.
-
+// oh i already did that to the code above
 
 
 
 // Test it by uncommenting the lines below:
 
-//var sd1 = speedDescription(kph: 10)
-//var sd2 = speedDescription(kph: 0)
-//var sd3 = speedDescription(kph: 45)
+var sd1 = describeSpeed(kph: 10)
+var sd2 = describeSpeed(kph: 0)
+var sd3 = describeSpeed(kph: 45)
 
 
 //: [Next](@next)

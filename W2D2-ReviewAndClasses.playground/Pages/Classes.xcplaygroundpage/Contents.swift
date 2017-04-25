@@ -15,6 +15,11 @@ class Box {
     func area() -> Double {
         return height * width
     }
+    
+    init(height: Double, width: Double) {
+        self.height = height
+        self.width = width
+    }
 }
 
 
@@ -24,23 +29,23 @@ class Box {
 //: Just like with functions, the code above doesn't actually do anything until it's used. It's just the definition, or the blueprint, for an object of type `Box`. That's right, we made our own type. It works the same as `Double` or `String`, but we can customize the logic it has and the data it stores.
 //: 
 //: So to use this new `Box` we can't just write out a number like we did with `Int`, or put some text in "quotes" like we do with `String`. We use the following syntax to create a new box:
-
-var box1 = Box()
+// commenting these out because I messed with the one above and it messes with these
+//var box1 = Box()
 
 //: Note: You can use this same syntax (`var count = Int()`)  with numbers and strings, but we rarely do because we can write the "literal" number 0.
 
 //: To access properties, use a .
 
-box1.height
+//box1.height
 
 //: To change a property, use a . and an assignment operator (`=`)
 
-box1.width = 10
-box1.height = 5
+//box1.width = 10
+//box1.height = 5
 
 //: Functions that are part of objects are called "methods". Box has one menthod, `area()`, and we can run it to get the area of the box like this:
 
-box1.area()
+//box1.area()
 
 
 //: ## Challenge 1
@@ -49,21 +54,37 @@ box1.area()
 //:
 //: Bicycles should also have two functions. `gearUp()` and `gearDown()`, which increase and decrease the value in `currentGear`.
 
-
+class Bicycle {
+    var numberOfGears: Int
+    var currentGear: Int
+    
+    func gearUp() {
+        currentGear = currentGear + 1
+    }
+    
+    func gearDown() {
+        currentGear = currentGear - 1
+    }
+    
+    init(numberOfGears: Int, currentGear: Int) {
+        self.numberOfGears = numberOfGears
+        self.currentGear = currentGear
+    }
+}
 
 
 
 //: Test your bicycle out by uncommenting the following code:
  
-//var myBike = Bicycle()
+var myBike = Bicycle(numberOfGears: 16, currentGear: 8)
 //
-//myBike.numberOfGears = 16 // upgrade!
-//myBike.gearUp()
-//myBike.gearUp()
-//myBike.gearDown()
-//myBike.gearUp()
+myBike.numberOfGears = 16 // upgrade!
+myBike.gearUp()
+myBike.gearUp()
+myBike.gearDown()
+myBike.gearUp()
 //
-//print("my bike is in the \(myBike.currentGear)rd gear")
+print("my bike is in the \(myBike.currentGear)rd gear")
 
 
 //: ## Challenge 2
@@ -108,7 +129,23 @@ brightBulb.watts
 //: Hint: don't forget to supply a number of gears when you create your bicycles!
 
 
-
+class Bicycle2 {
+    let numberOfGears: Double
+    var currentGear: Double
+    
+    func gearUp() {
+        currentGear = currentGear + 1
+    }
+    
+    func gearDown() {
+        currentGear = currentGear - 1
+    }
+    
+    init(gears: Double, currentGear: Double) {
+        self.numberOfGears = gears
+        self.currentGear = currentGear
+    }
+}
 
 
 
@@ -126,9 +163,24 @@ brightBulb.watts
 //: The syntax for subclassing can be found in the Swift Cheat Sheet included with this Playground.
 //:
 //: Hint: height * width * depth = the area of a cube
+class Cube: Box {
+    let depth: Double
+    
+    override func area() -> Double {
+        return height * width * depth
+    }
+    
+    init(height: Double, width: Double, depth: Double) {
+        self.depth = depth
+        super.init(height: height, width: width)
+    }
+}
 
+var example = Cube(height: 5, width: 2, depth: 2)
+example.area()
 
-
+var example2 = Box(height: 24, width: 12)
+example2.area()
 
 //: DONE!!! - Head back to compass to do today's tutorial.
 
